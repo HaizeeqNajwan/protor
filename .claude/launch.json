@@ -1,0 +1,13 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "url": "http://protor.test"
+    },
+    {
+      "name": "preview-demo",
+      "url": "http://localhost:8001"
+    }
+  ]
+}
