@@ -179,29 +179,9 @@ class ProjectResource extends Resource
                         ->preload(),
                 ]),
 
-            Section::make('Commercial')
-                ->description('Visible to Project Managers only.')
-                ->columns(2)
-                ->visible(fn () => static::isManager())
-                ->schema([
-                    TextInput::make('contract_sum')
-                        ->label('Construction Contract Sum')
-                        ->prefix('RM')
-                        ->numeric()
-                        ->minValue(0)
-                        ->default(0),
-                    TextInput::make('consultancy_fee')
-                        ->label('Consultancy Fee (Original ToR)')
-                        ->helperText('The agreed fee in the original terms of reference.')
-                        ->prefix('RM')
-                        ->numeric()
-                        ->minValue(0)
-                        ->default(0),
-                ]),
-
             Section::make('Schedule')
                 ->columns(3)
-                ->columnSpan(fn () => static::isManager() ? 1 : 'full')
+                ->columnSpanFull()
                 ->schema([
                     DatePicker::make('start_date')
                         ->native(false)
@@ -292,12 +272,6 @@ class ProjectResource extends Resource
                     ->badge()
                     ->color('gray')
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('consultancy_fee')
-                    ->label('Fee')
-                    ->money('MYR')
-                    ->sortable()
-                    ->visible(fn () => static::isManager())
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('target_completion_date')
                     ->label('Target')

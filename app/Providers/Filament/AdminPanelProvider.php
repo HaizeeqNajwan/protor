@@ -38,12 +38,12 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogoHeight('2.25rem')
             ->favicon(asset('favicon.svg'))
             ->colors([
-                'primary' => Color::Cyan,
-                'info' => Color::Sky,
-                'success' => Color::Emerald,
-                'warning' => Color::Amber,
-                'danger' => Color::Rose,
-                'gray' => Color::Slate,
+                'primary' => Color::hex('#06402B'),   // deep green
+                'info' => Color::hex('#5b86a8'),
+                'success' => Color::hex('#5e9a72'),
+                'warning' => Color::hex('#c49a4a'),
+                'danger' => Color::hex('#c2625f'),
+                'gray' => Color::Stone,
             ])
             ->font('IBM Plex Sans')                                // ProTor: technical typography
             ->monoFont('JetBrains Mono')
