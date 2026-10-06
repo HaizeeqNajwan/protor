@@ -20,7 +20,7 @@
 
         <header class="pt-panel-head">
             <div>
-                <p class="pt-eyebrow">{{ $project->project_code }} · Stage Telemetry</p>
+                <p class="pt-eyebrow">{{ $project->project_code }} · Project stage</p>
                 <h2 class="pt-panel-title">Currently in {{ $current->getLabel() }}</h2>
             </div>
             <div class="pt-head-meta">

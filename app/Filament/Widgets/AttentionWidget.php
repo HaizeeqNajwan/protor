@@ -22,7 +22,7 @@ class AttentionWidget extends Widget
     public function getColumnSpan(): int|string|array
     {
         // Managers also see the Team panel beside this one.
-        return auth()->user()?->isManager() ? ['default' => 1, 'xl' => 2] : 'full';
+        return auth()->user()?->isManager() ? ['default' => 1, 'xl' => 8] : 'full';
     }
 
     /** critical → info */

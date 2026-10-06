@@ -338,7 +338,7 @@ class ProjectResource extends Resource
         return Action::make('switchStage')
             ->label('Switch stage')
             ->icon('heroicon-o-arrows-right-left')
-            ->color('info')
+            ->color('gray')
             ->visible(fn (Project $record) => $record->canSwitchStage(static::user()))
             ->fillForm(fn (Project $record) => ['current_stage' => $record->currentStage()])
             ->modalWidth('lg')

@@ -26,9 +26,9 @@ enum ProjectStage: string implements HasColor, HasDescription, HasIcon, HasLabel
     public function getColor(): string
     {
         return match ($this) {
-            self::PreDesign => 'info',
+            self::PreDesign => 'peach',
             self::Design => 'primary',
-            self::PostDesign => 'success',
+            self::PostDesign => 'pink',
         };
     }
 

@@ -38,15 +38,19 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogoHeight('2.25rem')
             ->favicon(asset('favicon.svg'))
             ->colors([
-                'primary' => Color::hex('#06402B'),   // deep green
-                'info' => Color::hex('#5b86a8'),
-                'success' => Color::hex('#5e9a72'),
-                'warning' => Color::hex('#c49a4a'),
-                'danger' => Color::hex('#c2625f'),
-                'gray' => Color::Stone,
+                'primary' => Color::hex('#7c3fc0'),   // orchid purple
+                'info' => Color::hex('#7c3fc0'),
+                'success' => Color::hex('#1f7a4d'),
+                'warning' => Color::hex('#b7791f'),
+                'danger' => Color::hex('#c42b35'),
+                'peach' => Color::hex('#e0734a'),     // Pre-Design
+                'pink' => Color::hex('#b5368f'),      // Post-Design
+                'gray' => [                           // Apple-style neutrals
+                    50 => '#fbfbfd', 100 => '#f5f5f7', 200 => '#e8e8ed', 300 => '#d2d2d7', 400 => '#a1a1a6',
+                    500 => '#86868b', 600 => '#6e6e73', 700 => '#424245', 800 => '#2c2c2e', 900 => '#1c1c1e', 950 => '#050507',
+                ],
             ])
-            ->font('IBM Plex Sans')                                // ProTor: technical typography
-            ->monoFont('JetBrains Mono')
+            ->font('Inter')                                        // fallback; Apple devices render SF Pro (see --ds-font)
             ->defaultThemeMode(ThemeMode::Dark)
             ->sidebarCollapsibleOnDesktop()
             ->sidebarWidth('17rem')

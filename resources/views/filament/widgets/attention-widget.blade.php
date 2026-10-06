@@ -1,18 +1,12 @@
 <x-filament-widgets::widget class="pt-fill">
-    <section class="pt-panel pt-attention" wire:poll.120s.visible>
-        <header class="pt-panel-head">
-            <div>
-                <p class="pt-eyebrow">Needs attention</p>
-                <h2 class="pt-panel-title">What to look at next</h2>
-            </div>
-            <div class="pt-attn-counts">
-                @foreach (['critical' => 'Critical', 'danger' => 'Behind', 'warning' => 'Watch', 'success' => 'Ready'] as $tone => $label)
-                    @if (($counts[$tone] ?? 0) > 0)
-                        <span class="pt-status pt-tone--{{ $tone }}">{{ $counts[$tone] }} {{ $label }}</span>
-                    @endif
-                @endforeach
-            </div>
-        </header>
+    <x-pt.panel eyebrow="Needs attention" title="What to look at next" class="pt-attention" wire:poll.120s.visible>
+        <x-slot:actions>
+            @foreach (['critical' => 'Critical', 'danger' => 'Behind', 'warning' => 'Watch', 'success' => 'Ready'] as $tone => $label)
+                @if (($counts[$tone] ?? 0) > 0)
+                    <x-pt.badge :tone="$tone">{{ $counts[$tone] }} {{ $label }}</x-pt.badge>
+                @endif
+            @endforeach
+        </x-slot:actions>
 
         <ul class="pt-attn-list">
             @forelse ($items as $item)
@@ -51,5 +45,5 @@
         @if ($more > 0)
             <p class="pt-footnote">+{{ $more }} more — use “Needs attention” on the board.</p>
         @endif
-    </section>
+    </x-pt.panel>
 </x-filament-widgets::widget>

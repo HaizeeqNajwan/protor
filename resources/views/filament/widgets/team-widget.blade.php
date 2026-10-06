@@ -3,16 +3,10 @@
 @endphp
 
 <x-filament-widgets::widget class="pt-fill">
-    <section class="pt-panel pt-team">
-        <header class="pt-panel-head">
-            <div>
-                <p class="pt-eyebrow">Team</p>
-                <h2 class="pt-panel-title">Staff load</h2>
-            </div>
-            <span class="pt-status {{ $onLeave > 0 ? 'pt-tone--warning' : 'pt-tone--success' }}">
-                {{ $onLeave }} on leave today
-            </span>
-        </header>
+    <x-pt.panel eyebrow="Team" title="Staff load" class="pt-team">
+        <x-slot:actions>
+            <x-pt.badge :tone="$onLeave > 0 ? 'warning' : 'success'">{{ $onLeave }} on leave today</x-pt.badge>
+        </x-slot:actions>
 
         <ul class="pt-team-list">
             @forelse ($rows as $row)
@@ -40,5 +34,5 @@
                 <li class="pt-empty"><p>No staff engineers yet.</p></li>
             @endforelse
         </ul>
-    </section>
+    </x-pt.panel>
 </x-filament-widgets::widget>

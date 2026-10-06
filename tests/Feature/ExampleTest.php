@@ -2,18 +2,17 @@
 
 namespace Tests\Feature;
 
-// use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     */
-    public function test_the_application_returns_a_successful_response(): void
+    public function test_guests_are_redirected_to_the_login_page(): void
     {
-        $response = $this->get('/');
+        $this->get('/')->assertRedirect(route('filament.admin.auth.login'));
+    }
 
-        $response->assertStatus(200);
+    public function test_the_login_page_loads(): void
+    {
+        $this->get(route('filament.admin.auth.login'))->assertOk();
     }
 }
